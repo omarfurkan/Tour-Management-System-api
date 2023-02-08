@@ -1,0 +1,20 @@
+[
+  {
+    "tour_id": 12345,
+    "tour_name": "Grand Canyon Adventure",
+    "destination": "Grand Canyon, Arizona, USA",
+    "duration": "3 days",
+    "price_per_person": "$999",
+    "availability": 20,
+    "image_url": "https://example.com/grand-canyon-adventure.jpg"
+  },
+  {
+    "tour_id": 12346,
+    "tour_name": "Grand Canyon Hiking Expedition",
+    "destination": "Grand Canyon, Arizona, USA",
+    "duration": "7 days",
+    "price_per_person": "$1499",
+    "availability": 10,
+    "image_url": "https://example.com/grand-canyon-hiking-expedition.jpg"
+  }
+]
