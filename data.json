@@ -1,20 +1,58 @@
 [
   {
-    "tour_id": 12345,
     "tour_name": "Grand Canyon Adventure",
     "destination": "Grand Canyon, Arizona, USA",
-    "duration": "3 days",
-    "price_per_person": "$999",
+    "duration": 3,
+    "price_per_person": 8000,
     "availability": 20,
     "image_url": "https://example.com/grand-canyon-adventure.jpg"
   },
   {
-    "tour_id": 12346,
     "tour_name": "Grand Canyon Hiking Expedition",
     "destination": "Grand Canyon, Arizona, USA",
-    "duration": "7 days",
-    "price_per_person": "$1499",
+    "duration": 7,
+    "price_per_person": 24200,
     "availability": 10,
+    "image_url": "https://example.com/grand-canyon-hiking-expedition.jpg"
+  },
+  {
+    "tour_name": "Chittagong Metro Area",
+    "destination": "Nijam Ali Road,Chawk Bazar, ",
+    "duration": 2,
+    "price_per_person": 1500,
+    "availability": 10,
+    "image_url": "https://example.com/grand-canyon-hiking-expedition.jpg"
+  },
+  {
+    "tour_name": "Capital Area of USA",
+    "destination": "Grand Marvel, Washington DC, USA",
+    "duration": 6,
+    "price_per_person": 99000,
+    "availability": 10,
+    "image_url": "https://example.com/grand-canyon-hiking-expedition.jpg"
+  },
+  {
+    "tour_name": "Center of Dubai Beach",
+    "destination": "Burj Al Arab, Dubai Beach, UAE",
+    "duration": "2 days",
+    "price_per_person": 45000,
+    "availability": 22,
+    "image_url": "https://example.com/grand-canyon-hiking-expedition.jpg"
+  },
+  {
+    "tour_name": "Entrance of Desert, Ajman",
+    "destination": "Low Hayati, Ajman, UAE",
+    "duration": 2,
+    "price_per_person": 8900,
+    "availability": 34,
+    "image_url": "https://example.com/grand-canyon-hiking-expedition.jpg"
+  },
+  {
+    "tour_name": "Shangai Mart, Shop in wisdom",
+    "destination": "Shangai, Shopping mall, China",
+    "duration": 47,
+    "price_per_person": 9000,
+    "availability": 22,
     "image_url": "https://example.com/grand-canyon-hiking-expedition.jpg"
   }
 ]
