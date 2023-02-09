@@ -1,12 +1,10 @@
-const { getTourService, createToursServices, getTourByIdServeice, updateTourByIdService } = require("../Services/Tour.services");
+const { getTourService, createToursServices, getTourByIdServeice, updateTourByIdService, getCheapestTourService } = require("../Services/Tour.services");
 
 
 exports.getTour = async (req, res, next) => {
     try {
         let filter = req.query;
-        console.log(filter)
         const tours = await getTourService(filter)
-
         res.status(200).json({
             status: 'Success',
             data: tours
@@ -69,9 +67,26 @@ exports.updateTourById = async (req, res, next) => {
         })
     }
     catch (error) {
-        res.status(200).json({
+        res.status(400).json({
             status: "Fail",
             message: 'Fail to updata such data',
+            error: error.message
+        })
+    }
+}
+
+exports.getCheapestTour = async (req, res, next) => {
+    try {
+        const cheapestTour = await getCheapestTourService()
+        res.status(200).json({
+            status: 'Success',
+            data: cheapestTour
+        })
+    }
+    catch (error) {
+        res.status(400).json({
+            status: "Fail",
+            message: 'Fail to get data of cheapest tour',
             error: error.message
         })
     }

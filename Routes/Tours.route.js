@@ -6,6 +6,9 @@ router.route('/')
     .get(tourController.getTour)
     .post(tourController.createTour)
 
+router.route('/tour/cheapest')
+    .get(tourController.getCheapestTour)
+
 router.route('/tours/:id')
     .get(tourController.getTourById)
     .patch(tourController.updateTourById)
