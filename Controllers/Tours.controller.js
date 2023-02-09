@@ -3,8 +3,36 @@ const { getTourService, createToursServices, getTourByIdServeice, updateTourById
 
 exports.getTour = async (req, res, next) => {
     try {
-        let filter = req.query;
-        const tours = await getTourService(filter)
+        let filter = { ...req.query };
+        console.log(filter)
+        let excludFields = ['sort', 'page', 'limit', 'fields']
+        excludFields.forEach(field => delete filter[field])
+
+
+
+        const queries = {}
+
+        if (req.query.sort) {
+            const sortBy = req.query.sort.split(',').join(' ')
+            queries.sortBy = sortBy
+        }
+        if (req.query.fields) {
+            const fields = req.query.fields.split(',').join(' ')
+            queries.fields = fields;
+            console.log(fields)
+        }
+        if (req.query.page) {
+            const { page = 1, limit = 5 } = req.query
+            const skip = (page - 1) * parseInt(limit)
+            queries.skip = skip;
+            queries.limit = parseInt(limit)
+
+        }
+
+
+
+
+        const tours = await getTourService(filter, queries)
         res.status(200).json({
             status: 'Success',
             data: tours

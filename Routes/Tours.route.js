@@ -2,14 +2,14 @@ const express = require('express')
 const router = express.Router()
 const tourController = require('../Controllers/Tours.controller')
 
-router.route('/')
+router.route('/tours')
     .get(tourController.getTour)
     .post(tourController.createTour)
 
 router.route('/tour/cheapest')
     .get(tourController.getCheapestTour)
 
-router.route('/tours/:id')
+router.route('/tour/:id')
     .get(tourController.getTourById)
     .patch(tourController.updateTourById)
 

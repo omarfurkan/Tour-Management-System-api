@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
 
 // posting to database
 
-app.use('/api/v1/tours', tourRoute)
+app.use('/api/v1', tourRoute)
 
 
 module.exports = app;
