@@ -1,4 +1,4 @@
-const { getTourService, createToursServices, getTourByIdServeice } = require("../Services/Tour.services");
+const { getTourService, createToursServices, getTourByIdServeice, updateTourByIdService } = require("../Services/Tour.services");
 
 
 exports.getTour = async (req, res, next) => {
@@ -53,6 +53,25 @@ exports.getTourById = async (req, res, next) => {
         res.status(400).json({
             status: 'Fail',
             message: 'Fail to provide such data',
+            error: error.message
+        })
+    }
+}
+
+exports.updateTourById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const updateTourById = await updateTourByIdService(id, req.body)
+        res.status(200).json({
+            status: "Success",
+            message: "Successfully updated such product",
+            data: updateTourById
+        })
+    }
+    catch (error) {
+        res.status(200).json({
+            status: "Fail",
+            message: 'Fail to updata such data',
             error: error.message
         })
     }

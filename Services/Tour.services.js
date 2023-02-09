@@ -5,12 +5,19 @@ exports.getTourService = async () => {
     return tours
 }
 
-exports.createToursServices = async (data) => {
+exports.createToursService = async (data) => {
     const tour = await Tour.create(data)
     return tour
 }
 
 exports.getTourByIdServeice = async (id) => {
-    const tourById = await Tour.findById(id)
-    return tourById
+    const result = await Tour.findById(id)
+    return result
+}
+
+exports.updateTourByIdService = async (id, data) => {
+    const result = await Tour.updateOne({ _id: id }, { $set: data }, {
+        runValidators: true
+    })
+    return result;
 }
