@@ -1,4 +1,4 @@
-const { getTourService, createToursServices } = require("../Services/Tour.services");
+const { getTourService, createToursServices, getTourByIdServeice } = require("../Services/Tour.services");
 
 
 exports.getTour = async (req, res, next) => {
@@ -34,6 +34,25 @@ exports.createTour = async (req, res, next) => {
         res.status(400).json({
             status: "Fail",
             message: 'Fail to insert data for tour',
+            error: error.message
+        })
+    }
+}
+
+
+exports.getTourById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+        const tourbyId = await getTourByIdServeice(id)
+        res.status(200).json({
+            status: "Success",
+            data: tourbyId
+        })
+    }
+    catch (error) {
+        res.status(400).json({
+            status: 'Fail',
+            message: 'Fail to provide such data',
             error: error.message
         })
     }
