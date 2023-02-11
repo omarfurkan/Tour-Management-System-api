@@ -6,6 +6,7 @@ exports.getTourService = async (filter, queries) => {
         .skip(queries.skip)
         .limit(queries.limit)
         .select(queries.fields)
+        .sort(queries.sortBy)
     const total = await Tour.countDocuments(filter)
     const page = Math.ceil(total / queries.limit)
 
@@ -27,6 +28,10 @@ exports.updateTourByIdService = async (id, data) => {
         runValidators: true
     })
     return result;
+}
+exports.getTrendingTourService = async () => {
+    const result = await Tour.find({})
+    return result
 }
 
 exports.getCheapestTourService = async () => {

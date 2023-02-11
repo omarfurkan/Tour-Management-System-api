@@ -10,6 +10,7 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
+
 // routes
 const tourRoute = require('./Routes/Tours.route.js')
 

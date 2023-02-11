@@ -1,4 +1,4 @@
-const { getTourService, createToursServices, getTourByIdServeice, updateTourByIdService, getCheapestTourService } = require("../Services/Tour.services");
+const { getTourService, createToursServices, getTourByIdServeice, updateTourByIdService, getCheapestTourService, getTrendingTourService } = require("../Services/Tour.services");
 
 
 exports.getTour = async (req, res, next) => {
@@ -28,9 +28,6 @@ exports.getTour = async (req, res, next) => {
             queries.limit = parseInt(limit)
 
         }
-
-
-
 
         const tours = await getTourService(filter, queries)
         res.status(200).json({
@@ -70,6 +67,10 @@ exports.getTourById = async (req, res, next) => {
     try {
         const { id } = req.params;
         const tourbyId = await getTourByIdServeice(id)
+
+        tourbyId.views += 1;
+        await tourbyId.save()
+        res.send(tourbyId)
         res.status(200).json({
             status: "Success",
             data: tourbyId
@@ -98,6 +99,22 @@ exports.updateTourById = async (req, res, next) => {
         res.status(400).json({
             status: "Fail",
             message: 'Fail to updata such data',
+            error: error.message
+        })
+    }
+}
+
+exports.getTrendingTour = async (req, res, next) => {
+    try {
+        const trendingTour = await getTrendingTourService()
+
+    }
+
+
+    catch (error) {
+        res.status(400).json({
+            status: "Fail",
+            message: 'Fail to get data of tour on trending',
             error: error.message
         })
     }

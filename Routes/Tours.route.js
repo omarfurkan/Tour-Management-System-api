@@ -8,6 +8,8 @@ router.route('/tours')
 
 router.route('/tour/cheapest')
     .get(tourController.getCheapestTour)
+router.route('/tour/trending')
+    .get(tourController.getTrendingTour)
 
 router.route('/tour/:id')
     .get(tourController.getTourById)
